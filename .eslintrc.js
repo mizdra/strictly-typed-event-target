@@ -6,7 +6,7 @@ module.exports = {
   root: true,
   extends: ['@mizdra/mizdra', '@mizdra/mizdra/+typescript', '@mizdra/mizdra/+prettier'],
   parserOptions: {
-    project: ['./tsconfig.json', './test/tsconfig.json', './test-d/tsconfig.json'],
+    project: ['./tsconfig.src.json', './tsconfig.test.json', './tsconfig.test-d.json'],
   },
   env: {
     es6: true,

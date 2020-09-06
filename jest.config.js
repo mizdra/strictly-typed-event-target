@@ -7,6 +7,11 @@ const SHARED_CONFIG = {
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
+  globals: {
+    'ts-jest': {
+      tsConfig: '<rootDir>/tsconfig.test.json',
+    },
+  },
 };
 
 /** @type import('@jest/types').Config.InitialOptions */

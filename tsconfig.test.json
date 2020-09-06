@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.base.json",
+  "include": ["src/**/*", "test/**/*"],
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "ESNext" // TODO: 後で調整する
+  }
+}

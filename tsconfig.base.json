@@ -1,0 +1,33 @@
+{
+  // "include": ["src/**/*"], // override by inheritor
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    /* Basic Options */
+    // "target": "ESNext", // override by inheritor
+    "lib": ["esnext", "dom"], // TODO: 後で調整する
+
+    /* Module Options */
+    "module": "esnext", // モジュール周りは npm run build:* 側に任せる
+    "esModuleInterop": true, // CommonJS モジュールを `import _ from 'commonjs'` で import できるように
+    "moduleResolution": "node", // `node` にしないと `resolveJsonModule` が使えない
+    "forceConsistentCasingInFileNames": true, // 大文字小文字を区別しない環境 (win) でも unix と同じように区別する
+
+    /* Output Options */
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    /* Additional Features */
+    "jsx": "react",
+
+    /* Strict Type-Checking Options */
+    "strict": true,
+
+    /* Lint Options */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+    /* Debug Options */
+    "locale": "ja"
+  }
+}
