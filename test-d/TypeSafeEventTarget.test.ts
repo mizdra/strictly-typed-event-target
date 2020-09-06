@@ -16,8 +16,9 @@ canInstantiate<TypeSafeEventTarget<void>>();
 // *** compatibility
 // *************************
 
+// @ts-expect-error
 canAssign<TypeSafeEventTarget<{}>, TypeSafeEventTarget<FooEventMap>>();
-// NOTE: TypeScript allows covariance, so the follow is passed...
+// @ts-expect-error
 canAssign<TypeSafeEventTarget<FooEventMap>, TypeSafeEventTarget<{}>>();
 
 // *************************
