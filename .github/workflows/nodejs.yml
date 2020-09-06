@@ -28,5 +28,8 @@ jobs:
       - name: yarn run check:prettier
         run: yarn run check:prettier
 
+      - name: yarn run test
+        run: yarn run test
+
       - name: yarn run build
         run: yarn run build
