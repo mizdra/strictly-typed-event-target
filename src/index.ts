@@ -42,7 +42,7 @@ export interface TypeSafeEventTarget<EventMap extends {}> {
 }
 
 export function createTypeSafeEventTarget<EventMap extends {}>() {
-  const TypeSafeCustomEvent = CustomEvent as TypeSafeCustomEvent<EventMap>;
+  const TypeSafeCustomEvent = (CustomEvent as unknown) as TypeSafeCustomEvent<EventMap>;
   const TypeSafeEventTarget = EventTarget as TypeSafeEventTarget<EventMap>;
   return [TypeSafeCustomEvent, TypeSafeEventTarget] as const;
 }
