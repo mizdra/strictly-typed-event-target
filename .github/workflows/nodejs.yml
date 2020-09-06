@@ -25,11 +25,17 @@ jobs:
       - name: yarn run check:tsc
         run: yarn run check:tsc
 
+      - name: yarn run check:eslint
+        run: yarn run check:eslint
+
       - name: yarn run check:prettier
         run: yarn run check:prettier
 
-      - name: yarn run test
-        run: yarn run test
+      - name: yarn run test:type
+        run: yarn run test:type
+
+      - name: yarn run test:jest
+        run: yarn run test:jest
 
       - name: yarn run build
         run: yarn run build
