@@ -38,9 +38,21 @@ fooEventTarget.removeEventListener('onmessage', listener);
 fooEventTarget.dispatchEvent(new FooCustomEvent('onmessage', { detail: 'hello' }));
 ```
 
-## How to dev
+## How to develop (for Contributor)
 
 - `yarn run start`: Run for production
 - `yarn run build`: Build for production
 - `yarn run dev`: Run for development
 - `yarn run check`: Try static-checking
+
+## How to release (for Contributor)
+
+```console
+$ # Wait for passing CI...
+$ git switch master
+$ git pull
+$ yarn version
+$ npm run build
+$ npm publish
+$ git push --follow-tags
+```
