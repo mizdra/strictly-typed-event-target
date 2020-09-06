@@ -1,29 +1,30 @@
 {
-  "include": ["./src"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"],
   "compilerOptions": {
     /* Basic Options */
-    "outDir": "./dist",
-    "target": "esnext",
-    "lib": ["esnext"],
-    "declaration": false,
-    // "jsx": "react",
+    "target": "ESNext", // TODO: 後で調整する
+    "lib": ["esnext", "dom"], // TODO: 後で調整する
 
     /* Module Options */
-    "module": "es2015",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
+    "module": "esnext", // モジュール周りは tsc 側で弄らず rollup に任せる
+    "esModuleInterop": true, // CommonJS モジュールを `import _ from 'commonjs'` で import できるように
+    "resolveJsonModule": true, // import した json の型を推論するように
+    "moduleResolution": "node", // `node` にしないと `resolveJsonModule` が使えない
+    "forceConsistentCasingInFileNames": true, // 大文字小文字を区別しない環境 (win) でも unix と同じように区別する
+
+    /* Additional Features */
+    "jsx": "react",
 
     /* Strict Type-Checking Options */
     "strict": true,
 
-    /* Helper Options */
-    "noEmitHelpers": true,
-    "importHelpers": true,
+    /* Lint Options */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
 
     /* Debug Options */
-    "sourceMap": true,
-    "pretty": true,
+    "sourceMap": true, // for ts-loader (ref: https://github.com/TypeStrong/ts-loader#devtool--sourcemaps)
     "locale": "ja"
   }
 }
