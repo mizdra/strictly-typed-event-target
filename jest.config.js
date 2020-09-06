@@ -12,11 +12,12 @@ const SHARED_CONFIG = {
 /** @type import('@jest/types').Config.InitialOptions */
 module.exports = {
   projects: [
-    {
-      ...SHARED_CONFIG,
-      displayName: 'node',
-      testEnvironment: 'node',
-    },
+    // TODO: remove comment out after implementing `EventTarget` on Node.js
+    // {
+    //   ...SHARED_CONFIG,
+    //   displayName: 'node',
+    //   testEnvironment: 'node',
+    // },
     {
       ...SHARED_CONFIG,
       displayName: 'browser',
