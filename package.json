@@ -10,6 +10,11 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
+  "keywords": [
+    "eventtarget",
+    "event",
+    "typescript"
+  ],
   "files": [
     "src",
     "dist"
