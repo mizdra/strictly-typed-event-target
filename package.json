@@ -1,7 +1,7 @@
 {
   "name": "@mizdra/type-safe-event-target",
   "description": "This is a type-safe version of `EventTarget`",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": "https://github.com/mizdra/type-safe-event-target.git",
   "author": "mizdra <pp.mizdra@gmail.com>",
   "license": "MIT",
