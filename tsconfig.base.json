@@ -3,8 +3,8 @@
   "exclude": ["node_modules"],
   "compilerOptions": {
     /* Basic Options */
-    // "target": "ESNext", // override by inheritor
-    "lib": ["esnext", "dom"], // TODO: 後で調整する
+    "target": "ES5", // for legacy environment
+    "lib": ["ES5", "dom"], // `ES5` is the option for legacy environment
 
     /* Module Options */
     "module": "esnext", // モジュール周りは npm run build:* 側に任せる
