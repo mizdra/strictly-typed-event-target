@@ -1,5 +1,7 @@
 # type-safe-event-target
 
+![](<https://img.badgesize.io/https:/unpkg.com/@mizdra/type-safe-event-target/dist/esm/index.js.svg?compression=gzip&label=esm%20size%20(without%20minify)>) ![](<https://img.badgesize.io/https:/unpkg.com/@mizdra/type-safe-event-target/dist/umd/index.js.svg?compression=gzip&label=umd%20size%20(without%20minify)>)
+
 This is a type-safe version of `EventTarget`.
 
 ## Install
