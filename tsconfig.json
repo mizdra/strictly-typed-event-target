@@ -7,11 +7,15 @@
     "lib": ["esnext", "dom"], // TODO: 後で調整する
 
     /* Module Options */
-    "module": "esnext", // モジュール周りは tsc 側で弄らず rollup に任せる
+    "module": "esnext", // モジュール周りは npm run build:* 側に任せる
     "esModuleInterop": true, // CommonJS モジュールを `import _ from 'commonjs'` で import できるように
-    "resolveJsonModule": true, // import した json の型を推論するように
     "moduleResolution": "node", // `node` にしないと `resolveJsonModule` が使えない
     "forceConsistentCasingInFileNames": true, // 大文字小文字を区別しない環境 (win) でも unix と同じように区別する
+
+    /* Output Options */
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
 
     /* Additional Features */
     "jsx": "react",
@@ -24,7 +28,6 @@
     "noUnusedParameters": true,
 
     /* Debug Options */
-    "sourceMap": true, // for ts-loader (ref: https://github.com/TypeStrong/ts-loader#devtool--sourcemaps)
     "locale": "ja"
   }
 }
