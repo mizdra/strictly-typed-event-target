@@ -4,11 +4,10 @@
 /** @type import('eslint').Linter.BaseConfig */
 module.exports = {
   root: true,
-  extends: [
-    '@mizdra/mizdra',
-    '@mizdra/mizdra/+typescript',
-    '@mizdra/mizdra/+prettier',
-  ],
+  extends: ['@mizdra/mizdra', '@mizdra/mizdra/+typescript', '@mizdra/mizdra/+prettier'],
+  parserOptions: {
+    project: ['./tsconfig.json', './test-d/tsconfig.json'],
+  },
   env: {
     es6: true,
     node: true,
