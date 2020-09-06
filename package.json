@@ -10,7 +10,8 @@
     "start": "node dist/index.js",
     "build": "tsc",
     "dev": "ts-node src/index.ts",
-    "check": "run-p -l -c 'check:tsc --pretty' check:prettier",
+    "check": "run-p -l -c 'check:tsc --pretty' 'check:eslint --color' check:prettier",
+    "check:eslint": "eslint 'src/**/*.{ts,tsx}'",
     "check:tsc": "tsc --noEmit",
     "check:prettier": "prettier -l 'src/**/*.{ts,tsx}'"
   },
