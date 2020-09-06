@@ -1,6 +1,7 @@
 export interface FooEventMap {
   onmessage: string;
   onerror: Error;
+  oninstall: undefined;
 }
 
 /** T can be instantiated */

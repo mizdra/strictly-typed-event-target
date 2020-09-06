@@ -34,9 +34,13 @@ new FooCustomEvent('onmessage', { detail: 'hello' });
 new FooCustomEvent('onmessage', { detail: 0 });
 // @ts-expect-error
 new FooCustomEvent('onmessage', { detail: new Error() });
-// TODO: The follow should be fail to type-check
+// @ts-expect-error
 new FooCustomEvent('onmessage', { detail: undefined });
-// TODO: The follow should be fail to type-check
+// @ts-expect-error
 new FooCustomEvent('onmessage');
+new FooCustomEvent('oninstall', { detail: undefined });
+// TODO: allow `eventInitDict` to be omitted if the type of `CustomEvent#detail` is `undefined`
+// @ts-expect-error
+new FooCustomEvent('oninstall');
 // @ts-expect-error
 new FooCustomEvent('invalid-event', {} as any);

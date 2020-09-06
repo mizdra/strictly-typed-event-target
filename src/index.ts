@@ -1,6 +1,10 @@
+export interface TypeSafeCustomEventInit<T> extends CustomEventInit<T> {
+  detail: T;
+}
+
 export interface TypeSafeCustomEvent<EventMap extends {}, EventName extends keyof EventMap = keyof EventMap>
   extends CustomEvent<EventMap[EventName]> {
-  new <T extends keyof EventMap>(typeArg: T, eventInitDict?: CustomEventInit<EventMap[T]>): TypeSafeCustomEvent<
+  new <T extends keyof EventMap>(typeArg: T, eventInitDict: TypeSafeCustomEventInit<EventMap[T]>): TypeSafeCustomEvent<
     EventMap,
     T
   >;
