@@ -1,0 +1,10 @@
+{
+  "extends": ["github>hatena/renovate-config"],
+  "ignorePresets": ["github>hatena/renovate-config:schedule"],
+  "packageRules": [
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ]
+}
