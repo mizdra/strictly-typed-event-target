@@ -34,7 +34,7 @@
     "check:tsc": "tsc -p tsconfig.src.json --noEmit",
     "check:prettier": "prettier -l 'src/**/*.{ts,tsx}'",
     "test": "run-p -l -c 'test:type --pretty' 'test:jest --colors'",
-    "test:type": "tsc -p tsconfig.test-d.json --noEmit",
+    "test:type": "tsc -p tsconfig.test-type.json --noEmit",
     "test:jest": "jest"
   },
   "devDependencies": {
