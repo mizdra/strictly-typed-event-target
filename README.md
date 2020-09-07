@@ -16,9 +16,15 @@ Therefore, `@mizdra/type-safe-event-target` provides `EventTarget`, which can re
 
 - Based on [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) and [`CustomEvent`](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent)
 - Type-safe API
-- Universal (works on Browser and Node.js (in the near future...))
+  - Restrict the types of events to dispatch with `EventMap`.
+- Universal
+  - Works on browsers (and Node.js in the near future...).
+- Standardized API
+  - `EventTarget` and `CustomEvent` are standardized by WHATWG (ref: [spec](https://dom.spec.whatwg.org/#interface-eventtarget))
 - High performance
-- Veeeeeeeeeeeeeeery small size (Size of esm version is 1XX B !!!)
+  - `EventTarget` and `CustomEvent` are optimized for each platform.
+- VERY VERY small size
+  - **_ES Module version size is 1XX B._** (ref: [source](https://unpkg.com/@mizdra/type-safe-event-target/dist/esm/index.js))
 
 ## Install
 
@@ -29,32 +35,54 @@ $ yarn add @mizdra/type-safe-event-target
 
 ## Usage
 
+<!-- prettier-ignore-start -->
 ```typescript
-import { createTypeSafeEventTarget, TypeSafeEventListenerOrEventListenerObject } from '@mizdra/type-safe-event-target';
+import { createTypeSafeEventTarget } from '@mizdra/type-safe-event-target';
 
 // First, you should define event for `EventTarget`.
 interface FooEventMap {
   // `onmessage` is event name, and `string` is type of `CustomEvent#detail`.
   onmessage: string;
   onerror: Error;
+  oninstall: undefined;
 }
 
+// `createTypeSafeEventTarget` is a utility for creating
+// type-safe `CustomEvent` and `EventTarget`.
 const [FooCustomEvent, FooEventTarget] = createTypeSafeEventTarget<FooEventMap>();
 const fooEventTarget = new FooEventTarget();
-fooEventTarget.addEventListener('onmessage', (event) => {
-  // `event.detail` is infered `string`.
-  console.log(event.detail);
-});
-fooEventTarget.dispatchEvent(new FooCustomEvent('onmessage', { detail: 'hello' }));
 
-// Listener type is also available.
-const listener: TypeSafeEventListenerOrEventListenerObject<FooEventMap, 'onmessage'> = () => {
-  throw new Error('Removed event listener must not be called.');
-};
+// `addEventListener`
+fooEventTarget.addEventListener('onmessage', (event) => {
+  // `event.detail` is infered `string` type.
+});
+fooEventTarget.addEventListener('onerror', (event) => {
+  // `event.detail` is infered `Error` type.
+});
+
+// `dispatchEvent`
+fooEventTarget.dispatchEvent(
+  new FooCustomEvent('onmessage', { detail: 'hello' })
+);
+// compile error
+fooEventTarget.dispatchEvent(
+  new FooCustomEvent('onmessage', { detail: new Error() }),
+);
+fooEventTarget.dispatchEvent(new FooCustomEvent('oninstall'));
+
+// `removeEventListener`
+const listener: TypeSafeEventListenerOrEventListenerObject<
+  FooEventMap,
+  'onmessage',
+> = () => {};
 fooEventTarget.addEventListener('onmessage', listener);
 fooEventTarget.removeEventListener('onmessage', listener);
-fooEventTarget.dispatchEvent(new FooCustomEvent('onmessage', { detail: 'hello' }));
 ```
+<!-- prettier-ignore-end -->
+
+## APIs
+
+ref: [src/index.ts](https://github.com/mizdra/type-safe-event-target/blob/master/src/index.ts)
 
 ## How to develop (for Contributor)
 
