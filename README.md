@@ -1,6 +1,6 @@
-# @mizdra/type-safe-event-target
+# @mizdra/strictly-typed-event-target
 
-![](<https://img.badgesize.io/https:/unpkg.com/@mizdra/type-safe-event-target/dist/esm/index.js.svg?compression=gzip&label=esm%20size%20(without%20minify)>) ![](<https://img.badgesize.io/https:/unpkg.com/@mizdra/type-safe-event-target/dist/umd/index.js.svg?compression=gzip&label=umd%20size%20(without%20minify)>)
+![](<https://img.badgesize.io/https:/unpkg.com/@mizdra/strictly-typed-event-target/dist/esm/index.js.svg?compression=gzip&label=esm%20size%20(without%20minify)>) ![](<https://img.badgesize.io/https:/unpkg.com/@mizdra/strictly-typed-event-target/dist/umd/index.js.svg?compression=gzip&label=umd%20size%20(without%20minify)>)
 
 This is a type-safe version of [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget).
 
@@ -10,7 +10,7 @@ Traditionally, there was no universal native event emitter for browsers and Node
 
 Because `EventTarget` is a native API, it's faster and smaller than a 3rd party library like `eventemitter3` (rather than needing an extra bundle!). However, `EventTarget` cannot restrict the types of events it dispatches like `eventemitter3`. This has the problem of dispatching events of an unexpected type, which can cause runtime errors.
 
-Therefore, `@mizdra/type-safe-event-target` provides `EventTarget`, which can restrict the types of events to be dispatched. It's based on `EventTarget` and [`CustomEvent`](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent), so it's very fast and very small in size.
+Therefore, `@mizdra/strictly-typed-event-target` provides `EventTarget`, which can restrict the types of events to be dispatched. It's based on `EventTarget` and [`CustomEvent`](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent), so it's very fast and very small in size.
 
 ## Feature
 
@@ -24,20 +24,20 @@ Therefore, `@mizdra/type-safe-event-target` provides `EventTarget`, which can re
 - High performance
   - `EventTarget` and `CustomEvent` are optimized for each platform.
 - VERY VERY small size
-  - **_ES Module version size is 1XX B._** (ref: [source](https://unpkg.com/@mizdra/type-safe-event-target/dist/esm/index.js))
+  - **_ES Module version size is 1XX B._** (ref: [source](https://unpkg.com/@mizdra/strictly-typed-event-target/dist/esm/index.js))
 
 ## Install
 
 ```console
-$ npm install -S @mizdra/type-safe-event-target
-$ yarn add @mizdra/type-safe-event-target
+$ npm install -S @mizdra/strictly-typed-event-target
+$ yarn add @mizdra/strictly-typed-event-target
 ```
 
 ## Usage
 
 <!-- prettier-ignore-start -->
 ```typescript
-import { createTypeSafeEventTarget } from '@mizdra/type-safe-event-target';
+import { createTypeSafeEventTarget } from '@mizdra/strictly-typed-event-target';
 
 // First, you should define event for `EventTarget`.
 interface FooEventMap {
@@ -82,7 +82,7 @@ fooEventTarget.removeEventListener('onmessage', listener);
 
 ## APIs
 
-ref: [src/index.ts](https://github.com/mizdra/type-safe-event-target/blob/master/src/index.ts)
+ref: [src/index.ts](https://github.com/mizdra/strictly-typed-event-target/blob/master/src/index.ts)
 
 ## How to develop (for Contributor)
 
