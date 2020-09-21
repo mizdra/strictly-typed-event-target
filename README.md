@@ -1,6 +1,6 @@
 # @mizdra/strictly-typed-event-target
 
-![](<https://img.badgesize.io/https:/unpkg.com/@mizdra/strictly-typed-event-target/dist/esm/index.js.svg?compression=gzip&label=esm%20size%20(without%20minify)>) ![](<https://img.badgesize.io/https:/unpkg.com/@mizdra/strictly-typed-event-target/dist/umd/index.js.svg?compression=gzip&label=umd%20size%20(without%20minify)>)
+![](<https://img.badgesize.io/https:/unpkg.com/@mizdra/strictly-typed-event-target/dist/esm/index.js.svg?label=esm%20size%20(without%20minify)>) ![](<https://img.badgesize.io/https:/unpkg.com/@mizdra/strictly-typed-event-target/dist/umd/index.js.svg?label=umd%20size%20(without%20minify)>)
 
 This is a strictly-typed version of [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget).
 
