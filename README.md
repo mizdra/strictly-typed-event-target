@@ -18,7 +18,7 @@ Therefore, `@mizdra/strictly-typed-event-target` provides `EventTarget`, which c
 - Type-safe API
   - Restrict the types of events to dispatch with `EventMap`.
 - Universal
-  - Works on browsers (and Node.js in the near future...).
+  - Work in the browser/Node.js in the future (**NOTE: not supported in some environments yet**)
 - Standardized API
   - `EventTarget` and `CustomEvent` are standardized by WHATWG (ref: [spec](https://dom.spec.whatwg.org/#interface-eventtarget))
 - VERY VERY small size
