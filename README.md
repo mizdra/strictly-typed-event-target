@@ -84,6 +84,17 @@ fooEventTarget.removeEventListener('onmessage', listener);
 
 ref: [src/index.ts](https://github.com/mizdra/strictly-typed-event-target/blob/master/src/index.ts)
 
+## Compatibility
+
+Apart from the type definition, [they are identical to `EventTarget` `CustomEvent`](https://github.com/mizdra/strictly-typed-event-target/blob/master/src/index.ts), so the compatibility with them is the same. See MDN or Node.js API Documents for details.
+
+- Browser
+  - `EventTarget`: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget#Browser_compatibility
+  - `CustomEvent`: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent#Browser_compatibility
+- Node.js
+  - `EventTarget`: https://nodejs.org/api/events.html#events_eventtarget_and_event_api
+  - `CustomEvent`: not implemented yet
+
 ## How to develop (for Contributor)
 
 - `yarn run start`: Run for production
