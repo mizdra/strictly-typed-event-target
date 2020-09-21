@@ -1,48 +1,48 @@
-export interface TypeSafeCustomEventInit<T> extends CustomEventInit<T> {
+export interface STCustomEventInit<T> extends CustomEventInit<T> {
   detail: T;
 }
 
-export interface TypeSafeCustomEvent<EventMap extends {}, EventName extends keyof EventMap = keyof EventMap>
+export interface STCustomEvent<EventMap extends {}, EventName extends keyof EventMap = keyof EventMap>
   extends CustomEvent<EventMap[EventName]> {
   new <T extends keyof EventMap>(
     typeArg: T,
     // ref: https://stackoverflow.com/a/52318137
     ...ConditionalOptionalArgs: EventMap[T] extends undefined
-      ? [TypeSafeCustomEventInit<EventMap[T]>?]
-      : [TypeSafeCustomEventInit<EventMap[T]>]
-  ): TypeSafeCustomEvent<EventMap, T>;
+      ? [STCustomEventInit<EventMap[T]>?]
+      : [STCustomEventInit<EventMap[T]>]
+  ): STCustomEvent<EventMap, T>;
 }
 
-export interface TypeSafeEventListener<EventMap extends {}, EventName extends keyof EventMap = keyof EventMap> {
-  (evt: TypeSafeCustomEvent<EventMap, EventName>): void;
+export interface STEventListener<EventMap extends {}, EventName extends keyof EventMap = keyof EventMap> {
+  (evt: STCustomEvent<EventMap, EventName>): void;
 }
 
-export interface TypeSafeEventListenerObject<EventMap extends {}, EventName extends keyof EventMap = keyof EventMap> {
-  handleEvent(evt: TypeSafeCustomEvent<EventMap, EventName>): void;
+export interface STEventListenerObject<EventMap extends {}, EventName extends keyof EventMap = keyof EventMap> {
+  handleEvent(evt: STCustomEvent<EventMap, EventName>): void;
 }
 
-export type TypeSafeEventListenerOrEventListenerObject<
+export type STEventListenerOrEventListenerObject<
   EventMap extends {},
   EventName extends keyof EventMap = keyof EventMap
-> = TypeSafeEventListener<EventMap, EventName> | TypeSafeEventListenerObject<EventMap, EventName>;
+> = STEventListener<EventMap, EventName> | STEventListenerObject<EventMap, EventName>;
 
-export interface TypeSafeEventTarget<EventMap extends {}> {
-  new (): TypeSafeEventTarget<EventMap>;
+export interface STEventTarget<EventMap extends {}> {
+  new (): STEventTarget<EventMap>;
   addEventListener<T extends keyof EventMap>(
     type: T,
-    listener: TypeSafeEventListenerOrEventListenerObject<EventMap, T> | null,
+    listener: STEventListenerOrEventListenerObject<EventMap, T> | null,
     options?: boolean | AddEventListenerOptions,
   ): void;
-  dispatchEvent<CustomEvent extends TypeSafeCustomEvent<EventMap, keyof EventMap>>(event: CustomEvent): boolean;
+  dispatchEvent<CustomEvent extends STCustomEvent<EventMap, keyof EventMap>>(event: CustomEvent): boolean;
   removeEventListener<T extends keyof EventMap>(
     type: T,
-    callback: TypeSafeEventListenerOrEventListenerObject<EventMap, T> | null,
+    callback: STEventListenerOrEventListenerObject<EventMap, T> | null,
     options?: EventListenerOptions | boolean,
   ): void;
 }
 
-export function createTypeSafeEventTarget<EventMap extends {}>() {
-  const TypeSafeCustomEvent = (CustomEvent as unknown) as TypeSafeCustomEvent<EventMap>;
-  const TypeSafeEventTarget = EventTarget as TypeSafeEventTarget<EventMap>;
-  return [TypeSafeCustomEvent, TypeSafeEventTarget] as const;
+export function createSTEventTarget<EventMap extends {}>() {
+  const STCustomEvent = (CustomEvent as unknown) as STCustomEvent<EventMap>;
+  const STEventTarget = EventTarget as STEventTarget<EventMap>;
+  return [STCustomEvent, STEventTarget] as const;
 }

@@ -35,7 +35,7 @@ $ yarn add @mizdra/strictly-typed-event-target
 
 <!-- prettier-ignore-start -->
 ```typescript
-import { createTypeSafeEventTarget } from '@mizdra/strictly-typed-event-target';
+import { createSTEventTarget } from '@mizdra/strictly-typed-event-target';
 
 // First, you should define event for `EventTarget`.
 interface FooEventMap {
@@ -45,9 +45,9 @@ interface FooEventMap {
   oninstall: undefined;
 }
 
-// `createTypeSafeEventTarget` is a utility for creating
+// `createSTEventTarget` is a utility for creating
 // strictly-typed `CustomEvent` and `EventTarget`.
-const [FooCustomEvent, FooEventTarget] = createTypeSafeEventTarget<FooEventMap>();
+const [FooCustomEvent, FooEventTarget] = createSTEventTarget<FooEventMap>();
 const fooEventTarget = new FooEventTarget();
 
 // `addEventListener`
@@ -69,7 +69,7 @@ fooEventTarget.dispatchEvent(
 fooEventTarget.dispatchEvent(new FooCustomEvent('oninstall'));
 
 // `removeEventListener`
-const listener: TypeSafeEventListenerOrEventListenerObject<
+const listener: STEventListenerOrEventListenerObject<
   FooEventMap,
   'onmessage',
 > = () => {};

@@ -1,24 +1,24 @@
-import { TypeSafeCustomEvent, TypeSafeEventTarget } from '../src/index';
+import { STCustomEvent, STEventTarget } from '../src/index';
 import { FooEventMap, canInstantiate, canAssign, expectType } from './helper';
 
-declare const fooEventTarget: TypeSafeEventTarget<FooEventMap>;
-declare const FooCustomEvent: TypeSafeCustomEvent<FooEventMap>;
+declare const fooEventTarget: STEventTarget<FooEventMap>;
+declare const FooCustomEvent: STCustomEvent<FooEventMap>;
 
 // *************************
 // *** instantiation
 // *************************
-canInstantiate<TypeSafeEventTarget<FooEventMap>>();
-canInstantiate<TypeSafeEventTarget<{}>>();
+canInstantiate<STEventTarget<FooEventMap>>();
+canInstantiate<STEventTarget<{}>>();
 // @ts-expect-error
-canInstantiate<TypeSafeEventTarget<void>>();
+canInstantiate<STEventTarget<void>>();
 
 // *************************
 // *** compatibility
 // *************************
 
 // NOTE: The follow line expects a type error to occur, but for some reason it doesn't...
-canAssign<TypeSafeEventTarget<{}>, TypeSafeEventTarget<FooEventMap>>();
-canAssign<TypeSafeEventTarget<FooEventMap>, TypeSafeEventTarget<{}>>();
+canAssign<STEventTarget<{}>, STEventTarget<FooEventMap>>();
+canAssign<STEventTarget<FooEventMap>, STEventTarget<{}>>();
 
 // *************************
 // *** method

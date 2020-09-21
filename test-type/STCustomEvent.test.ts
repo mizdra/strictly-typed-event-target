@@ -1,29 +1,29 @@
 import { canInstantiate, FooEventMap, canAssign } from './helper';
-import { TypeSafeCustomEvent } from '../src';
+import { STCustomEvent } from '../src';
 
-declare const FooCustomEvent: TypeSafeCustomEvent<FooEventMap>;
+declare const FooCustomEvent: STCustomEvent<FooEventMap>;
 
 // *************************
 // *** instantiation
 // *************************
 
-canInstantiate<TypeSafeCustomEvent<FooEventMap>>();
-canInstantiate<TypeSafeCustomEvent<FooEventMap, 'onmessage'>>();
-canInstantiate<TypeSafeCustomEvent<FooEventMap, 'onerror'>>();
+canInstantiate<STCustomEvent<FooEventMap>>();
+canInstantiate<STCustomEvent<FooEventMap, 'onmessage'>>();
+canInstantiate<STCustomEvent<FooEventMap, 'onerror'>>();
 // @ts-expect-error
-canInstantiate<TypeSafeCustomEvent<FooEventMap, 'invalid-event'>>();
-canInstantiate<TypeSafeCustomEvent<{}>>();
+canInstantiate<STCustomEvent<FooEventMap, 'invalid-event'>>();
+canInstantiate<STCustomEvent<{}>>();
 // @ts-expect-error
-canInstantiate<TypeSafeCustomEvent<void>>();
+canInstantiate<STCustomEvent<void>>();
 
 // *************************
 // *** compatibility
 // *************************
 
-canAssign<TypeSafeCustomEvent<FooEventMap>, TypeSafeCustomEvent<FooEventMap, 'onmessage'>>();
+canAssign<STCustomEvent<FooEventMap>, STCustomEvent<FooEventMap, 'onmessage'>>();
 // @ts-expect-error
-canAssign<TypeSafeCustomEvent<FooEventMap, 'onmessage'>, TypeSafeCustomEvent<FooEventMap>>();
-canAssign<CustomEvent<FooEventMap[keyof FooEventMap]>, TypeSafeCustomEvent<FooEventMap>>();
+canAssign<STCustomEvent<FooEventMap, 'onmessage'>, STCustomEvent<FooEventMap>>();
+canAssign<CustomEvent<FooEventMap[keyof FooEventMap]>, STCustomEvent<FooEventMap>>();
 
 // *************************
 // *** method
