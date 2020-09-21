@@ -1,6 +1,6 @@
 {
   "name": "@mizdra/strictly-typed-event-target",
-  "description": "This is a type-safe version of `EventTarget`",
+  "description": "This is a strictly-typed version of `EventTarget`",
   "version": "1.0.0",
   "repository": "https://github.com/mizdra/strictly-typed-event-target.git",
   "author": "mizdra <pp.mizdra@gmail.com>",
