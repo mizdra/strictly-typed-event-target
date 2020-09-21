@@ -8,9 +8,9 @@ This is a type-safe version of [`EventTarget`](https://developer.mozilla.org/en-
 
 Traditionally, there was no universal native event emitter for browsers and Node.js. Therefore, if you wanted a universal event emitter that worked in both environments, you had to use a 3rd-party library like [`eventemitter3`](https://github.com/primus/eventemitter3). However, recently, Node.js has implemented [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) (An experimental feature not yet available to the public as of 2020/09), `EventTarget` is establishing itself as a universal event emitter.
 
-Because `EventTarget` is a native API, it's faster and smaller than a 3rd party library like `eventemitter3` (rather than needing an extra bundle!). However, `EventTarget` cannot restrict the types of events it dispatches like `eventemitter3`. This has the problem of dispatching events of an unexpected type, which can cause runtime errors.
+Because `EventTarget` is a native API, it's smaller than a 3rd party library like `eventemitter3` (rather than needing an extra bundle!). However, `EventTarget` cannot restrict the types of events it dispatches like `eventemitter3`. This has the problem of dispatching events of an unexpected type, which can cause runtime errors.
 
-Therefore, `@mizdra/strictly-typed-event-target` provides `EventTarget`, which can restrict the types of events to be dispatched. It's based on `EventTarget` and [`CustomEvent`](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent), so it's very fast and very small in size.
+Therefore, `@mizdra/strictly-typed-event-target` provides `EventTarget`, which can restrict the types of events to be dispatched. It's based on `EventTarget` and [`CustomEvent`](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent), so it's very small in size.
 
 ## Feature
 
@@ -21,8 +21,6 @@ Therefore, `@mizdra/strictly-typed-event-target` provides `EventTarget`, which c
   - Works on browsers (and Node.js in the near future...).
 - Standardized API
   - `EventTarget` and `CustomEvent` are standardized by WHATWG (ref: [spec](https://dom.spec.whatwg.org/#interface-eventtarget))
-- High performance
-  - `EventTarget` and `CustomEvent` are optimized for each platform.
 - VERY VERY small size
   - **_ES Module version size is 1XX B._** (ref: [source](https://unpkg.com/@mizdra/strictly-typed-event-target/dist/esm/index.js))
 
