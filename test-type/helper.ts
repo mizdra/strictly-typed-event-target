@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 export interface FooEventMap {
   onmessage: string;
   onerror: Error;
