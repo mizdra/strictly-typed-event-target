@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+
 import { STCustomEvent, STEventTarget } from '../src/index';
 import { FooEventMap, canInstantiate, canAssign, expectType } from './helper';
 

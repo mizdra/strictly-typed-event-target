@@ -1,5 +1,9 @@
-import { canInstantiate, FooEventMap, canAssign } from './helper';
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+
 import { STCustomEvent } from '../src';
+import { canInstantiate, FooEventMap, canAssign } from './helper';
 
 declare const FooCustomEvent: STCustomEvent<FooEventMap>;
 

@@ -30,7 +30,7 @@
     "build:esm": "tsc -p tsconfig.src.json --module ESNext --outDir dist/esm",
     "dev": "ts-node src/index.ts",
     "check": "run-p -l -c 'check:tsc --pretty' 'check:eslint --color' check:prettier",
-    "check:eslint": "eslint 'src/**/*.{ts,tsx}'",
+    "check:eslint": "eslint '{src,test,test-type}/**/*.{ts,tsx}'",
     "check:tsc": "tsc -p tsconfig.src.json --noEmit",
     "check:prettier": "prettier -l 'src/**/*.{ts,tsx}'",
     "test": "run-p -l -c 'test:type --pretty' 'test:jest --colors'",
@@ -38,7 +38,7 @@
     "test:jest": "jest"
   },
   "devDependencies": {
-    "@mizdra/eslint-config-mizdra": "^0.5.0",
+    "@mizdra/eslint-config-mizdra": "^0.7.0",
     "@types/jest": "^26.0.19",
     "@types/node": "^14.14.17",
     "@typescript-eslint/eslint-plugin": "^4.11.1",

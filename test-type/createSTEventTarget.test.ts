@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/ban-types */
+
 import { createSTEventTarget, STCustomEvent, STEventTarget } from '../src';
 import { FooEventMap, expectType } from './helper';
 
