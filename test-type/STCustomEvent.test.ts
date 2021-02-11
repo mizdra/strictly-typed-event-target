@@ -1,5 +1,5 @@
-import { canInstantiate, FooEventMap, canAssign } from './helper';
 import { STCustomEvent } from '../src';
+import { canInstantiate, FooEventMap, canAssign } from './helper';
 
 declare const FooCustomEvent: STCustomEvent<FooEventMap>;
 
