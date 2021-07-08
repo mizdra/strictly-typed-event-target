@@ -37,8 +37,11 @@
     "test:type": "tsc -p tsconfig.test-type.json --noEmit",
     "test:jest": "jest"
   },
+  "prettier": "@mizdra/prettier-config-mizdra",
+  "renovate": "github>mizdra/renovate-config-mizdra",
   "devDependencies": {
     "@mizdra/eslint-config-mizdra": "^0.8.0",
+    "@mizdra/prettier-config-mizdra": "^0.3.0",
     "@types/jest": "^26.0.23",
     "@types/node": "^14.17.4",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
