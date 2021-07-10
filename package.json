@@ -38,7 +38,9 @@
     "test:jest": "jest"
   },
   "prettier": "@mizdra/prettier-config-mizdra",
-  "renovate": "github>mizdra/renovate-config-mizdra",
+  "renovate": {
+    "extends": ["github>mizdra/renovate-config-mizdra"]
+  },
   "devDependencies": {
     "@mizdra/eslint-config-mizdra": "^0.8.0",
     "@mizdra/prettier-config-mizdra": "^0.3.0",
