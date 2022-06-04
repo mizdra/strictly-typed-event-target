@@ -39,7 +39,7 @@
   },
   "prettier": "@mizdra/prettier-config-mizdra",
   "renovate": {
-    "extends": ["github>mizdra/renovate-config-mizdra"]
+    "extends": ["github>mizdra/renovate-config-mizdra:default.json5"]
   },
   "devDependencies": {
     "@mizdra/eslint-config-mizdra": "^0.9.0",
